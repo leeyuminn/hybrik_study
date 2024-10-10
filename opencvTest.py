@@ -55,6 +55,9 @@ except KeyboardInterrupt:
     # Ctrl+C를 누르면 종료
     pass
 
+print("내장 메소드 사용")
+print(cap.get(cv2.CAP_PROP_FPS))
+
 # 사용이 끝났으면 웹캠을 해제
 cap.release()
 cv2.destroyAllWindows()
