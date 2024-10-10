@@ -32,31 +32,31 @@ def xyxy2xywh(bbox):
 
 # 입력 비디오 파일의 정보 가져오는 함수 -> 웹캠 대체
 #def get_video_info(in_file):
-    stream = cv2.VideoCapture(in_file)
-    assert stream.isOpened(), 'Cannot capture source'
-    # self.path = input_source
-    datalen = int(stream.get(cv2.CAP_PROP_FRAME_COUNT))
-    fourcc = int(stream.get(cv2.CAP_PROP_FOURCC))
-    fps = stream.get(cv2.CAP_PROP_FPS)
-    frameSize = (int(stream.get(cv2.CAP_PROP_FRAME_WIDTH)),
-                 int(stream.get(cv2.CAP_PROP_FRAME_HEIGHT)))
-    # bitrate = int(stream.get(cv2.CAP_PROP_BITRATE))
-    videoinfo = {'fourcc': fourcc, 'fps': fps, 'frameSize': frameSize}
-    stream.release()
-
-    return stream, videoinfo, datalen
+#    stream = cv2.VideoCapture(in_file)
+#    assert stream.isOpened(), 'Cannot capture source'
+#    # self.path = input_source
+#    datalen = int(stream.get(cv2.CAP_PROP_FRAME_COUNT))
+#    fourcc = int(stream.get(cv2.CAP_PROP_FOURCC))
+#    fps = stream.get(cv2.CAP_PROP_FPS)
+#    frameSize = (int(stream.get(cv2.CAP_PROP_FRAME_WIDTH)),
+#                 int(stream.get(cv2.CAP_PROP_FRAME_HEIGHT)))
+#    # bitrate = int(stream.get(cv2.CAP_PROP_BITRATE))
+#    videoinfo = {'fourcc': fourcc, 'fps': fps, 'frameSize': frameSize}
+#    stream.release()
+#
+#    return stream, videoinfo, datalen
 
 
 #def recognize_video_ext(ext=''):
-    if ext == 'mp4':
-        return cv2.VideoWriter_fourcc(*'mp4v'), '.' + ext
-    elif ext == 'avi':
-        return cv2.VideoWriter_fourcc(*'XVID'), '.' + ext
-    elif ext == 'mov':
-        return cv2.VideoWriter_fourcc(*'XVID'), '.' + ext
-    else:
-        print("Unknow video format {}, will use .mp4 instead of it".format(ext))
-        return cv2.VideoWriter_fourcc(*'mp4v'), '.mp4'
+#    if ext == 'mp4':
+#        return cv2.VideoWriter_fourcc(*'mp4v'), '.' + ext
+#    elif ext == 'avi':
+#        return cv2.VideoWriter_fourcc(*'XVID'), '.' + ext
+#    elif ext == 'mov':
+#        return cv2.VideoWriter_fourcc(*'XVID'), '.' + ext
+#    else:
+#        print("Unknow video format {}, will use .mp4 instead of it".format(ext))
+#        return cv2.VideoWriter_fourcc(*'mp4v'), '.mp4'
 
 
 parser = argparse.ArgumentParser(description='HybrIK Demo')
