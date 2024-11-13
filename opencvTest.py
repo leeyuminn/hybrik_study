@@ -2,12 +2,20 @@ import cv2
 import time
 
 # 웹캠 시작
-cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture(1)
+#cap = cv2.VideoCapture("/dev/video1", cv2.CAP_FFMPEG)
+cap = cv2.VideoCapture("/dev/video1", cv2.CAP_V4L2)
 
 # 웹캠 설정
-# 이미지 크기 설정 (예: 640x480)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+
+# MJPG 형식으로 설정
+cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*'MJPG'))
+
+# 이미지 크기 설정 (예: 640x480 -> fhd:1920x1080(30fps) -> hd:1280*720(60fps))
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+cap.set(cv2.CAP_PROP_FPS, 60)  # 60fps로 설정
+
 
 # 웹캠이 열렸는지 확인
 if not cap.isOpened():
